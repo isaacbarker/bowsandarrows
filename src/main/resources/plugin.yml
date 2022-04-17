@@ -1,0 +1,21 @@
+name: BowsAndArrows
+version: '${project.version}'
+main: me.isaacbarker.bowsandarrows.BowsAndArrows
+api-version: 1.18
+authors: [ G_ja ]
+description: A plugin which makes a bow explosive or completely unusable.
+permissions:
+  bowsandarrows.toggleexplosive:
+    description: Allows you to have explosive arrows! Operators have this as default.
+  bowsandarrows.togglemissing:
+    description: Allows a user to make another activate missing mode on another player. Operators have this as default.
+commands:
+  missing:
+    description: Makes a user miss their bow shots.
+    permission: bowsandarrows.togglemissing
+    usage: /missing [player | optional]
+  explosive:
+    description: Makes a user have explosive arrows.
+    permission: bowsandarrows.toggleexplosive
+    usage: /explosive [player | optional]
+
