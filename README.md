@@ -9,3 +9,9 @@ Firstly using `/explosive (player)` or just `/explosive` to select yourself caus
 ### Missing Shots
 
 This I imagine being some sort of punishment or consequence or your Minecraft server or just a trick on your friends. When using `/missing (player)` or just `/missing` to select yourself all of your arrows will be offset by a random number in every direction so you can never hit a shot. These shots vary from something very subtle to extreme changes like straight down or straight up. The commands requires the `bowsandarrows.togglemissing` permission or just operator on a server. It should just add some fun or annoyance into your server.
+
+### How to download
+
+To download this plugin you can:
+- Go via SpigotMC: https://www.spigotmc.org/resources/bowsandarrows.101447/
+- Access the releases tab: https://github.com/isaacbarker/bowsandarrows/releases
