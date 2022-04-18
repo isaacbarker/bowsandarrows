@@ -1,5 +1,6 @@
 package me.isaacbarker.bowsandarrows.EventListeners;
 
+import me.isaacbarker.bowsandarrows.BowsAndArrows;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Location;
@@ -20,6 +21,11 @@ import java.util.UUID;
 public class EntityHitListener implements CommandExecutor, Listener {
 
     static ArrayList<UUID> explosivePlayers = new ArrayList<>();
+    private final BowsAndArrows plugin;
+
+    public EntityHitListener(BowsAndArrows bowsAndArrows) {
+        this.plugin = bowsAndArrows;
+    }
 
     @EventHandler
     public void onEntityHit(EntityDamageByEntityEvent e) {
@@ -31,10 +37,14 @@ public class EntityHitListener implements CommandExecutor, Listener {
                     Location loc = e.getEntity().getLocation();
                     World w = e.getEntity().getWorld();
 
-                    if (a.getFireTicks() > 0) { // Arrow is on fire -> fire explosion
-                        w.createExplosion(loc, 3f, true);
+                    int configPower = plugin.getConfig().getInt("explosionPower");
+                    float power = configPower;
+                    boolean allowFlame = plugin.getConfig().getBoolean("allowFlame");
+
+                    if (a.getFireTicks() > 0 && allowFlame) { // Arrow is on fire -> fire explosion
+                        w.createExplosion(loc, power, true);
                     } else { // Arrow is not on fire -> plain explosion
-                        w.createExplosion(loc, 3f, false);
+                        w.createExplosion(loc, power, false);
                     }
                 }
             }
@@ -49,10 +59,15 @@ public class EntityHitListener implements CommandExecutor, Listener {
             Player p = null;
             if (args.length >= 1) {
                 p = Bukkit.getPlayer(args[0]);
+                if (p == null) { // Checks if the player is valid
+                    sender.sendMessage(ChatColor.RED + "The player you provided is not online.");
+                    return true;
+                }
             } else if (sender instanceof Player) {
                 p = (Player) sender;
             } else {
-                return false;
+                sender.sendMessage(ChatColor.RED + "You must provide a player to toggle! e.g. /explosive <player>");
+                return true;
             }
             UUID uuid = p.getUniqueId();
 

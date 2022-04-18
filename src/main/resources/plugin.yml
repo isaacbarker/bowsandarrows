@@ -5,11 +5,17 @@ api-version: 1.18
 authors: [ G_ja ]
 description: A plugin which makes a bow explosive or completely unusable.
 permissions:
+  bowsandarrows.reloadconfig:
+    description: Allows a user to reload the plugin config without reloading or restarting the server.
   bowsandarrows.toggleexplosive:
     description: Allows you to have explosive arrows! Operators have this as default.
   bowsandarrows.togglemissing:
     description: Allows a user to make another activate missing mode on another player. Operators have this as default.
 commands:
+  reloadconfig:
+    description: Reloads the plugin config.
+    permission: bowsandarrows.reloadconfig
+    usage: /reloadconfig
   missing:
     description: Makes a user miss their bow shots.
     permission: bowsandarrows.togglemissing

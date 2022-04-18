@@ -45,10 +45,15 @@ public class EntityShootListener implements CommandExecutor, Listener {
             Player p = null;
             if (args.length >= 1) {
                 p = Bukkit.getPlayer(args[0]);
+                if (p == null) { // Checks if the player is valid
+                    sender.sendMessage(ChatColor.RED + "The player you provided is not online.");
+                    return true;
+                }
             } else if (sender instanceof Player) {
                 p = (Player) sender;
             } else {
-                return false;
+                sender.sendMessage(ChatColor.RED + "You must provide a player to toggle! e.g. /missing <player>");
+                return true;
             }
             UUID uuid = p.getUniqueId();
 

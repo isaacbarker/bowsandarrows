@@ -1,0 +1,4 @@
+# the power of an explosive arrow. e.g tnt=4
+explosionPower: 3
+# if flaming arrows will have flame explosions
+allowFlame: true
