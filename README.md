@@ -10,6 +10,10 @@ Firstly using `/explosive (player)` or just `/explosive` to select yourself caus
 
 This I imagine being some sort of punishment or consequence or your Minecraft server or just a trick on your friends. When using `/missing (player)` or just `/missing` to select yourself all of your arrows will be offset by a random number in every direction so you can never hit a shot. These shots vary from something very subtle to extreme changes like straight down or straight up. The commands requires the `bowsandarrows.togglemissing` permission or just operator on a server. It should just add some fun or annoyance into your server.
 
+### Config
+
+So that server owners can configure this server you will find a config.yml created when restarting your server with version `1.1` and upward. Within this config file you can adapt certain functionality of the plugin. To reload the config without restarting or reloading the server use: `/reloadconfig` which requires the `bowsandarrows.reloadconfig` permission which operators have as default.
+
 ### How to download
 
 To download this plugin you can:
